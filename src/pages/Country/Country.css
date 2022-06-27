@@ -1,0 +1,17 @@
+.covid {
+    display: flex;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content: space-between;
+    height: 500px;
+}
+.covid div{
+    margin: 15px;
+    padding: 30px;
+    background-color: hsla(0, 0%, 100%, 0.473);
+    font-size: larger;
+    height: 30px;
+}
+h1{
+    text-align: center;
+}
