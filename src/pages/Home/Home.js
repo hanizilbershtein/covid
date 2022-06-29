@@ -1,16 +1,14 @@
-import React from 'react'
-import TimeLine from '../../components/TimeLine/TimeLine'
-import SortCountry from '../../components/SortCountry/SortCountry'
+import React from "react";
+import TimeLine from "../../components/TimeLine/TimeLine";
+import SortCountry from "../../components/SortCountry/SortCountry";
 
 const Home = () => {
   return (
-    <div>  
-
-          <TimeLine/>
-          <SortCountry/>
-
+    <div>
+      <TimeLine />
+      <SortCountry />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

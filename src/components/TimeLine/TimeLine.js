@@ -1,72 +1,63 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import './TimeLine.css'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "./TimeLine.css";
 
 const TimeLine = () => {
+  const [dataTimeLine, setDataTimeLine] = useState([]);
 
-    const [dataTimeLine,setDataTimeLine] = useState([])
-    
-    async function fetchDataTimeline(){
-        const countryUrl=`https://corona-api.com/timeline`
-       // if(country==="") return;
-        const {data}= await axios.get(countryUrl)
-        //console.log(data);
-        const timeline=data.data[0]
-        setDataTimeLine([
-            timeline.confirmed,
-            timeline.deaths,
-            timeline.active,
-            timeline.new_confirmed,
-            timeline.new_deaths
-        ])
-      
-        console.log({dataTimeLine});
-        
+  async function fetchDataTimeline() {
+    const countryUrl = `https://corona-api.com/timeline`;
+    // if(country==="") return;
+    const { data } = await axios.get(countryUrl);
+    //console.log(data);
+    const timeline = data.data[0];
+    setDataTimeLine([
+      timeline.confirmed.toLocaleString(),
+      timeline.deaths.toLocaleString(),
+      timeline.active.toLocaleString(),
+      timeline.new_confirmed.toLocaleString(),
+      timeline.new_deaths.toLocaleString(),
+    ]);
 
-    }
+    // console.log({dataTimeLine});
+  }
 
-    useEffect(()=>{
-        fetchDataTimeline()
-
-    },[])
-
-
-
-/*function numberWithCommas(x) {
-    return (isString(x) ? x : x?.toString())?.replace(
-      /\B(?=(\d{3})+(?!\d))/g,
-      ","
-    );
-  }*/
+  useEffect(() => {
+    fetchDataTimeline();
+  }, []);
 
   return (
-      <div className='timeline'>
-    <h1>covid-19 coronavirus tracker</h1>
+    <div className="timeline">
+      <h1>covid-19 coronavirus tracker</h1>
 
-    <div className='total'>
-        <b>TOTAL CASES</b> <br/><br/>
+      <div className="total">
+        <b>TOTAL CASES</b> <br />
+        <br />
         {dataTimeLine[0]}
-    </div>
-    <div>
-        <b>DEATHS</b> <br/><br/>
+      </div>
+      <div>
+        <b>DEATHS</b> <br />
+        <br />
         {dataTimeLine[1]}
-    </div>
+      </div>
 
-    <div>
-        <b>RECOVERED</b> <br/><br/>
+      <div>
+        <b>RECOVERED</b> <br />
+        <br />
         {dataTimeLine[2]}
-    </div>
-    <div>
-        <b>NEW CASES</b> <br/><br/>
+      </div>
+      <div>
+        <b>NEW CASES</b> <br />
+        <br />
         {dataTimeLine[3]}
-    </div>
-    <div>
-        <b>NEU DEATHS</b> <br/><br/>
+      </div>
+      <div>
+        <b>NEU DEATHS</b> <br />
+        <br />
         {dataTimeLine[4]}
+      </div>
     </div>
+  );
+};
 
-    </div>
-  )
-}
-
-export default TimeLine
+export default TimeLine;
