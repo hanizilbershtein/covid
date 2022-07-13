@@ -7,9 +7,7 @@ const TimeLine = () => {
 
   async function fetchDataTimeline() {
     const countryUrl = `https://corona-api.com/timeline`;
-    // if(country==="") return;
     const { data } = await axios.get(countryUrl);
-    //console.log(data);
     const timeline = data.data[0];
     setDataTimeLine([
       timeline.confirmed.toLocaleString(),
@@ -18,8 +16,6 @@ const TimeLine = () => {
       timeline.new_confirmed.toLocaleString(),
       timeline.new_deaths.toLocaleString(),
     ]);
-
-    // console.log({dataTimeLine});
   }
 
   useEffect(() => {

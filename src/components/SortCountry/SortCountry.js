@@ -12,7 +12,6 @@ const SortCountry = () => {
   const [sortConfirmToday, setSortConfirmToday] = useState([]);
   async function fetchSort() {
     const countryUrl = `https://corona-api.com/countries`;
-    // if(country==="") return;
     const { data } = await axios.get(countryUrl);
     setSortDeaths(
       data.data.map((el) => ({
